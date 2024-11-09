@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="hoja estilo/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Londrina+Sketch&family=Pixelify+Sans:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yusei+Magic&display=swap" rel="stylesheet">
+        <title>Document</title>
+    </head>
+    <body>
+        <!--secicion de introduccion de la pagina-->
+        <div class="contenedor-portada">
+            <h1>FrikiLevel</h1>
+            <p>¡Bienvenido a FrikiLevel! Aquí podrás descubrir cuán friki eres en tus videojuegos favoritos. Elige un juego, introduce tu nivel y te ayudaremos a calcular tu puntuación friki para compararla con otros gamers. ¿Listo para medir tu nivel de obsesión gamer? ¡Empieza ahora y sube en el ranking friki!</p>
+        </div>
+
+        <!--menu de los juegos con imagenes-->
+        <div class="contenedor-menu">
+            <div class="contenedor-videojuego">
+                <h1>Counter Strick 2</h1>
+                <img src="img/csgo.jpg">
+            </div>
+            <div class="contenedor-videojuego">
+                <h1>Minecraft</h1>
+                <img src="img/minecraft.jpg">
+            </div>
+            <div class="contenedor-videojuego">
+                <h1>League Of Legends</h1>
+                <img src="img/lol.jpg">
+            </div>
+            <div class="contenedor-videojuego">
+                <h1>Fortnite</h1>
+                <img src="img/fortnite.jpg">
+            </div>
+        </div>
+
+        <!--Formulario para ingresar el nombre y el nivel de habilidad en un juego-->
+        <div class="contenedor-seleccion">
+            <form>
+                <h1>FRIKI METER</h1>
+                <input type="text" placeholder="Escribe el nombre del juego" id="juego">
+                <input type="number" placeholder="Escribe tu nivel" id="nivel">
+
+                <!--Botones para añadir un juego, limpiar campos y limpiar la tabla-->
+                <div class="contenedor-botones">
+                    <input type="button" class="boton" value="Añadir Juego" onclick="agregar();"> 
+                    <input type="button" class="boton" value="Limpiar Tablas" onclick="limpiarTabla();">
+                    <input type="reset" class="boton" value="Limpiar Caja">
+                </div>
+            </form>
+        </div>
+
+        <!--tabla para mostrar los juegos seleccionados y sus niveles-->
+        <div class="contenedor-tabla">
+            <table>
+                <caption id="titulo">TABLA DE JUEGOS</caption>
+                <thead>
+                    <tr>
+                        <th>IMAGEN DEL JUEGO</th>
+                        <th>NOMBRE DEL JUEGO</th>
+                        <th>NIVEL DEL JUEGO</th>
+                    </tr>
+                </thead>
+                <tbody id="limpiarTabla">
+
+                    <!--Fila oculta para mostrar datos de counter strick 2-->
+                    <tr  id="csgo-row" style="display: none;">
+                        <td>
+                            <div id="csgo-img">
+                                <img src="img/csgo.jpg" class="tabla-img">
+                            </div> 
+                        </td>
+                        <td>
+                            <div id="csgo-nombre">Counter Strick 2</div>
+                        </td>
+                        <td>
+                            <div id="csgo-nivel"></div>
+                            <div class="boton-papelera">
+                                <button><img src="img/papelera.png" onclick="borrarJuego('csgo');"></button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!--fila ocula para minecraft-->
+                    <tr id="minecraft-row" style="display: none;">
+                        <td>
+                            <div id="minecraft-img">
+                                <img src="img/minecraft.jpg" class="tabla-img">
+                            </div> 
+                        </td>
+                        <td>
+                            <div id="minecraft-nombre">Minecraft</div>
+                        </td>
+                        <td>
+                            <div id="minecraft-nivel"></div>
+                            <div class="boton-papelera">
+                                <button><img src="img/papelera.png" onclick="borrarJuego('minecraft');"></button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!--fila oculta para league of legends-->
+                    <tr id="leagueOfLegends-row" style="display: none;">
+                        <td>
+                            <div id="leagueOfLegends-img">
+                                <img src="img/lol.jpg" class="tabla-img">
+                            </div> 
+                        </td>
+                        <td>
+                            <div id="leagueOfLegends-nombre">League of Legends</div>
+                        </td>
+                        <td>
+                            <div id="leagueOfLegends-nivel"></div>
+                            <div class="boton-papelera">
+                                <button><img src="img/papelera.png" onclick="borrarJuego('leagueOfLegends');"></button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!--fila oculta para fortnite-->
+                    <tr id="fortnite-row" style="display: none;">
+                        <td>
+                            <div id="fortnite-img">
+                                <img src="img/fortnite.jpg" class="tabla-img">
+                            </div> 
+                        </td>
+                        <td>
+                            <div id="fortnite-nombre">Fortnite</div>
+                        </td>
+                        <td>
+                            <div id="fortnite-nivel"></div>
+                            <div class="boton-papelera">
+                                <button><img src="img/papelera.png" onclick="borrarJuego('fortnite');"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--tabla para mostrar el nivel promedio del jugador-->
+        <div class="contenedor-tabla-jugador">
+            <table id="tablaGeneral">
+                <caption id="titulo">NIVEL DEL JUGADOR</caption>
+                <thead>
+                    <tr>
+                        <th>IMAGEN</th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>PROMEDIO</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-jugador">
+
+                    <!--Fila oculta para el nivel general del jugador-->
+                    <tr id="nivel-row" style="display: none;">
+                        <td>
+                            <div>
+                                <img id="img-niveles" src="" class="tabla-img">
+                            </div>
+                        </td>
+                    
+                        <td>
+                            <div id="texto"></div>
+                        </td>
+                        <td>
+                            <div id="promedio"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!--script  para menejar las interacciones-->
+        <script type="text/javascript">
+
+            //variables globales para toral de niveles y contador de juegos
+            var totalNiveles=0;  //almacena la suma total de los niveles ingresador
+            var contadorNiveles=0; //variable para almacenar la contidad de niveles que el usuario ha ingresado
+
+            //funcion para agregar un juego y nivel
+            function agregar(){
+                var juego; 
+                var nivel;
+                var promedio;
+                juego=document.getElementById('juego').value.toLowerCase(); //nombre del juego y lo convierte en minusculas
+                nivel=parseFloat(document.getElementById('nivel').value); //nivel ingresado por el usuario
+
+                //validar si el nivel esta entre 1 y 100
+                if(nivel<0 || nivel>100){
+                    alert("Ingresa un nivel valido entre 1 y 100");
+                    return; //Detiene la ejecucion si el nivel no esta en el rango 
+                }
+
+                //muestra la fila correspondiente segun el juego ingresado
+                switch(juego){
+                    case 'csgo':
+                        document.getElementById('csgo-row').style.display='table-row';
+                        document.getElementById('csgo-nivel').innerHTML= nivel;
+                        document.getElementById('juego').value="";
+                        document.getElementById('nivel').value="";
+                        break;
+                    case 'minecraft': 
+                        document.getElementById('minecraft-row').style.display='table-row';
+                        document.getElementById('minecraft-nivel').innerHTML=nivel;
+                        document.getElementById('juego').value="";
+                        document.getElementById('nivel').value="";
+                        break;
+                    case 'league of legends': 
+                        document.getElementById('leagueOfLegends-row').style.display='table-row';
+                        document.getElementById('leagueOfLegends-nivel').innerHTML= nivel;
+                        document.getElementById('juego').value="";
+                        document.getElementById('nivel').value="";
+                        break;
+                    case 'fortnite': 
+                        document.getElementById('fortnite-row').style.display='table-row'; 
+                        document.getElementById('fortnite-nivel').innerHTML= nivel;
+                        document.getElementById('juego').value="";
+                        document.getElementById('nivel').value="";
+                        break; 
+                }
+
+                //actualizar el promedio de niveles
+                totalNiveles= totalNiveles+nivel; // suma el nivel ingresado al total acumulado de niveles y actuliza el valor
+                contadorNiveles= contadorNiveles+1; // operador de incremento 
+                promedio= totalNiveles/contadorNiveles; // calcula el promedio de los niveles ingresados dividiendo la suma total / el numero de entradas de nivel
+
+                //muestra el promedio en la tabla general
+                document.getElementById('promedio').innerHTML=promedio.toFixed(2); //actuliza el contenido con la id promedio mostrandolo, redondeando a dos decimales
+                document.getElementById('nivel-row').style.display='table-row';
+
+                document.getElementById('img-niveles').style.display='block';
+
+                //asigna una imagen y descripcion segun el nivel promedio
+                if(promedio<33){
+                    document.getElementById('img-niveles').src="img/nivel-malo.png";
+                    document.getElementById('texto').innerHTML="El Rey del Fracaso: Este jugador es un experto en perder: derriba a sus compañeros, se queda atascado en paredes y dispara en la dirección equivocada. Cada partida es una comedia de errores. ¡Un verdadero maestro del desastre!";
+                }else if(promedio<66){
+                    document.getElementById('img-niveles').src="img/nivel-medio.png";
+                    document.getElementById('texto').innerHTML="El Guerrero en Progreso: Este jugador ha dejado atrás los errores novatos y muestra destellos de habilidad. Conoce las mecánicas, aunque le falta precisión. Un competidor en camino hacia la grandeza.";
+
+                }else if(promedio>=67){
+                    document.getElementById('img-niveles').src="img/nivel-alto.png";
+                    document.getElementById('texto').innerHTML="El Maestro Estratégico: Este jugador domina todas las mecánicas y anticipa los movimientos del enemigo. Su precisión y estrategia son letales, convirtiéndolo en un competidor temido y respetado.";
+                }
+            }
+
+            //funcion para limpiar la tabla 
+            function limpiarTabla(){
+                document.getElementById('csgo-row').style.display='none';
+                document.getElementById('minecraft-row').style.display='none'; 
+                document.getElementById('leagueOfLegends-row').style.display='none'; 
+                document.getElementById('fortnite-row').style.display='none'; 
+                document.getElementById('promedio').innerHTML="";
+
+                //reinicia las varibles a valor 0
+                totalNiveles=0; 
+                contadorNiveles=0; 
+
+                //oculta el promedio del jugador
+                document.getElementById('nivel-row').style.display='none';
+            }
+
+            //funcion para borrar un juego y actualizar el promedio 
+            function borrarJuego(juego){
+                var nivel=0; //La inicializamos en cero
+                
+                switch(juego){
+                    case 'csgo': 
+                        nivel= parseFloat(document.getElementById('csgo-nivel').innerHTML); 
+                        document.getElementById('csgo-row').style.display='none'; 
+                        break; 
+                    case 'minecraft': 
+                        nivel= parseFloat(document.getElementById('minecraft-nivel').innerHTML); 
+                        document.getElementById('minecraft-row').style.display='none'; 
+                        break;
+                    case 'fortnite': 
+                        nivel= parseFloat(document.getElementById('fortnite-nivel').innerHTML); 
+                        document.getElementById('fortnite-row').style.display='none'; 
+                        break;
+                    case 'leagueOfLegends': 
+                        nivel= parseFloat(document.getElementById('leagueOfLegends-nivel').innerHTML); 
+                        document.getElementById('leagueOfLegends-row').style.display='none'; 
+                        break;
+                    default: 
+                        alert("No tenemos ese juego en nuestra base de datos")
+                        return; 
+                }   
+
+                //Restar el nivel de juego eliminado del total y decrementar el contador 
+                totalNiveles= totalNiveles-nivel; 
+                contadorNiveles= contadorNiveles-1; 
+
+                //recalcular el promedio 
+                if(contadorNiveles>0){
+                   var promedio =totalNiveles/contadorNiveles; 
+                    promedio=document.getElementById('promedio').innerHTML=promedio.toFixed(2); 
+
+                    //Asignar una imagen y descripcion segun el nuevo promedio
+                    if(promedio<33){
+                        document.getElementById('img-niveles').src="img/nivel-malo.png";
+                        document.getElementById('texto').innerHTML="El Rey del Fracaso: Este jugador es un experto en perder: derriba a sus compañeros, se queda atascado en paredes y dispara en la dirección equivocada. Cada partida es una comedia de errores. ¡Un verdadero maestro del desastre!";
+                    }else if(promedio<66){
+                        document.getElementById('img-niveles').src="img/nivel-medio.png";
+                        document.getElementById('texto').innerHTML="El Guerrero en Progreso: Este jugador ha dejado atrás los errores novatos y muestra destellos de habilidad. Conoce las mecánicas, aunque le falta precisión. Un competidor en camino hacia la grandeza.";
+
+                    }else if(promedio>=67){
+                        document.getElementById('img-niveles').src="img/nivel-alto.png";
+                        document.getElementById('texto').innerHTML="El Maestro Estratégico: Este jugador domina todas las mecánicas y anticipa los movimientos del enemigo. Su precisión y estrategia son letales, convirtiéndolo en un competidor temido y respetado.";
+                    }
+                    document.getElementById('img-niveles').style.display='block';
+                }else{
+                    //si no quedan juegoos restablece los valores 
+                    document.getElementById('promedio').innerHTML="";
+                    document.getElementById('texto').innerHTML="";
+                    document.getElementById('img-niveles').style.display='none';
+                }
+            }
+        </script>
+    </body>
+</html>

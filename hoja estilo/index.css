@@ -1,0 +1,187 @@
+html{
+    font-family: "Yusei Magic", serif;
+}
+
+body{
+    background-color: #121212;
+    color: #1DB954;
+}
+.contenedor-portada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contenedor-portada h1{
+    font-size: 60px;
+}
+
+.contenedor-portada p{
+    text-align: center;
+    width: 700px;
+    font-size: 18px;
+}
+
+.contenedor-menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-videojuego{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-inline: 40px;
+    padding-bottom: 200px;
+}
+.contenedor-videojuego h1{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    transform: 0.3 ease;
+}
+
+
+.contenedor-videojuego img{
+    height: 200px;
+    border-radius: 8px;
+    transform: 0.3s ease;
+}
+
+.contenedor-videojuego:hover img{
+    transform: scale(1.1);
+
+}
+.contenedor-videojuego:hover h1{
+    transform: scale(1.1);
+
+}
+
+
+
+.contenedor-seleccion{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.contenedor-seleccion form{
+    background-color: #1DB954;
+    color: black;
+    text-align: center;
+    height: 250px;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.contenedor-seleccion form h1{
+    border-bottom: 2px solid;
+    
+}
+
+
+.contenedor-seleccion input[type="text"]{
+    display: flex;
+    padding: 10px 15px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid;
+    width: 200px;
+}
+.contenedor-seleccion input[type="number"]{
+    display: flex;
+    padding: 10px 15px;
+    margin: 10px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid;
+    width: 200px;
+}
+
+
+.boton{
+    background-color:#121212;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: 0.3 ease, transform 0.2s;
+    margin: 5px;
+}
+
+.boton:hover{
+    transform: scale(1.05);
+}
+
+.contenedor-tabla{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: none;
+}
+th,td{
+    padding: 10px;
+    text-align: center;
+    border: 1px solid;
+}
+
+th{
+    background-color: #1DB954;
+    color: black;
+
+}
+.tabla-img{
+    height: 150px;
+    border-radius: 8px;
+}
+
+
+.contenedor-tabla-jugador{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo{
+    font-size: 30px;
+}
+
+
+#tablaGeneral{
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: none;
+   
+}
+#tabla-jugador th,td {
+    margin: 20px 0;
+    border: none;
+    width: 200px;
+}
+
+.boton-papelera button{
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+    
+}
+
+.boton-papelera button img{
+    height: 30px;
+    padding-top: 10px;
+}
